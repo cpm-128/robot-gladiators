@@ -4,15 +4,15 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 //log multiple values at a single time
-console.log(playerName, playerHealth, playerAttack, playerMoney);
+//console.log(playerName, playerHealth, playerAttack, playerMoney);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-console.log(enemyName,enemyHealth,enemyAttack);
+//console.log(enemyNames,enemyHealth,enemyAttack);
 
-var fight = function() {
+var fight = function(enemyName) {
     // alert players the round is starting
         window.alert("Welcome to Robot Gladiators!");
     // player choose: fight or skip:
@@ -68,4 +68,9 @@ var fight = function() {
     }
 };
 
-fight();
+// the for loop is BELOW defining the fight function bc we need to already know how the fight function in this loop
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}
+
+//fight();
