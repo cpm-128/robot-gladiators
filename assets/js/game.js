@@ -4,13 +4,13 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 //log multiple values at a single time
-//console.log(playerName, playerHealth, playerAttack, playerMoney);
+console.log(playerName, playerHealth, playerAttack, playerMoney);
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-//console.log(enemyNames,enemyHealth,enemyAttack);
+console.log(enemyNames,enemyHealth,enemyAttack);
 
 var fight = function(enemyName) {
     // repeat and execute as long as the enemy-robot is alive
