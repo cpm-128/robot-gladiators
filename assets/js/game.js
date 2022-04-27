@@ -69,7 +69,7 @@ for(var i = 0; i < enemyNames.length; i++) {
         // identify the round
         window.alert("Welcome to Robot Gladiators! Round " + ( i + 1));
         //pick new enemy to fight based on the index of the enemyNames array
-        var pickedEnemyName = enemyNames[1];
+        var pickedEnemyName = enemyNames[i];
         //reset enemyHealth before starting a new fight
         enemyHealth = 50;
         //pass the pickedEnemyName into the fight function, where it will assume the value of the enemyName parameter
