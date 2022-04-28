@@ -80,7 +80,7 @@ var fightOrSkip = function() {
             var confirmSkip = window.confirm("Are you sure you'd like to quit?");
                 //if yes (true), leave fight
                 if(confirmSkip) {
-                    window.alert(playerInfo.name + " have decided to skip this fight. Goodbye.");
+                    window.alert(playerInfo.name + " has decided to skip this fight. Goodbye.");
                     // subtract money from playerMoney for skipping
                     playerInfo.money = playerInfo.money - 10;
                     // return true if player wants to leave
@@ -201,6 +201,20 @@ var endGame = function() {
   } else {
     window.alert("You've lost your robot in battle!");
   }
+
+    // check localStorage for highscore, if it's not there, use 0
+    var highScore = localStorage.getItem("highscore");
+    if (highScore === null) {
+        highScore = 0;
+    }
+    // if player has more money than the highscore, player has a new highscore
+    if(playerInfo.money > highScore) {
+        localStorage.setItem("highscore", playerInfo.money);
+        localStorage.setItem("name", playerInfo.name);
+        alert(playerInfo.name + " has a new highscore of " + playerInfo.money + "!");
+    } else {
+        alert(playerInfo.name + " did not beat the highscore of " + highScore + ". Maybe next time.");
+    }
 
   // ask player if they'd like to play again
   var playAgainConfirm = window.confirm('Would you like to play again?');
