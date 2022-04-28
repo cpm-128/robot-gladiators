@@ -207,19 +207,17 @@ var endGame = function() {
 var shop = function() {
   // ask player what they'd like to do
   var shopOptionPrompt = window.prompt(
-    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+    'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter 1 to REFILL, 2 to UPGRADE, or 3 to LEAVE.'
   );
 
   // use switch case to carry out action
+  // but first, convert the user-entered string number to an integer
+  shopOptionPrompt = parseInt(shopOptionPrompt);
   switch (shopOptionPrompt) {
-    case 'REFILL':
-    case 'refill':
-    case 'Refill':
+    case 1:
         playerInfo.refillHealth();
         break;
-    case 'UPGRADE':
-    case 'upgrade':
-    case 'Upgrade':
+    case 2:
       if (playerInfo.money >= 7) {
         window.alert("Upgrading player's attack by 6 for 7 dollars.");
 
@@ -231,8 +229,7 @@ var shop = function() {
         window.alert("You don't have enough money!");
     }
       break;
-    case 'LEAVE':
-    case 'leave':
+    case 3:
       window.alert('Leaving the store.');
 
       // do nothing, so function will end
