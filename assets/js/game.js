@@ -71,8 +71,11 @@ var fightOrSkip = function() {
         }
         console.log("Play has chose to " + promptFight + ".");
  
+        // add user input to all lower case to override cAsE sEnSaTiViTy
+        promptFight = promptFight.toLowerCase();
+
         // if player picks SKIP, confirm and then stop the loop
-        if(promptFight === 'skip' || promptFight === 'SKIP' || promptFight === 'Skip') {
+        if(promptFight === 'skip') {
             //confirm player wants to skip
             var confirmSkip = window.confirm("Are you sure you'd like to quit?");
                 //if yes (true), leave fight
@@ -80,17 +83,23 @@ var fightOrSkip = function() {
                     window.alert(playerInfo.name + " have decided to skip this fight. Goodbye.");
                     // subtract money from playerMoney for skipping
                     playerInfo.money = playerInfo.money - 10;
+                    // return true if player wants to leave
+                    return true;
                     // option to go shop
                     shop();
                 }
         }
+        return false;
 }
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemy) {
   while (playerInfo.health > 0 && enemy.health > 0) {
-    // ask player if they'd like to fight or skip
-    fightOrSkip();
+    // ask player if they'd like to fight or skip using fightOrSkip function
+    if (fightOrSkip()) {
+        // if true, leave fight by breaking the loop, true is skip
+        break;
+    }
 
     // remove enemy's health by subtracting the amount set in the playerInfo.attack variable
     // generate random damage value based on player's attack power
